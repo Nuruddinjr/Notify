@@ -8,11 +8,11 @@ class NotificationsController < ApplicationController
 		
 	end
 	def new
-		@notification = Notification.new
+		@notification = current_professor.notifications.build
 
 	end
 	def create
-		@notification = Notification.new(notification_params)
+		@notification = current_professor.notifications.build(notification_params)
 		if @notification.save
 			redirect_to @notification, notice: "Successfully Created!"
 		else

@@ -11,14 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150303153327) do
+ActiveRecord::Schema.define(version: 20150303153812) do
 
   create_table "notifications", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "professor_id"
   end
+
+  add_index "notifications", ["professor_id"], name: "index_notifications_on_professor_id"
 
   create_table "professors", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

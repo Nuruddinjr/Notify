@@ -1,5 +1,10 @@
 %h1= @notification.title
 %p= @notification.description
+%p 
+Submitted by
+= @notification.professor.email
+%br/
+
 = link_to "Back", root_path
 = link_to "Edit", edit_notification_path
 = link_to "Delete", notification_path, method: :delete, data: {confirm: "Are you sure?"}
