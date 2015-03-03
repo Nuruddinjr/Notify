@@ -1,0 +1,15 @@
+= simple_form_for @notification, html: {multipart: true} do |f|
+	- if @notification.errors.any?
+		#errors
+			%h2
+			= pluralize(@notification.errors.count, "error")
+			prevented this Notification from Saving!
+			%ul
+				- @notification.errors.full_messages.each do |msg|
+					%li= msg 
+
+	.form-group
+		= f.input :title, input_html: {class: 'form-control'}
+	.form-group
+		= f.input :description, input_html: {class: 'form-control'}
+	= f.button :submit, class: "btn btn-primary"
