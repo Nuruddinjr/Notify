@@ -2,7 +2,7 @@
 	.col-md-8.col-md-offset-2
 		.panel.panel-default
 			.panel-heading.notification_image
-				= image_tag @notification.image.url(:medium)
+				= image_tag @notification.image.url
 			.panel-body
 				%h1= @notification.title
 				%p.description= @notification.description
