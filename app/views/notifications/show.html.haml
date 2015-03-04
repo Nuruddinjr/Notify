@@ -15,6 +15,9 @@
 						= @notification.professor.email
 					.col-md-6
 						.btn-group.pull-right
-							= link_to "Back", root_path, class: 'btn btn-default'
-							= link_to "Edit", edit_notification_path, class: 'btn btn-default'
-							= link_to "Delete", notification_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-default'
+							= link_to like_notification_path(@notification),method: :put, class: 'btn btn-default' do
+								%span.glyphicon.glyphicon-heart
+								= @notification.get_upvotes.size
+							- if professor_signed_in?
+								= link_to "Edit", edit_notification_path, class: 'btn btn-default'
+								= link_to "Delete", notification_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-default'

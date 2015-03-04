@@ -16,6 +16,7 @@ gem 'simple_form', '~> 3.1.0'
 gem 'devise'
 gem 'paperclip'
 gem 'masonry-rails', '~> 0.2.4'
+gem 'acts_as_votable', '~> 0.10.0'
 group :development, :test do
   gem 'byebug'
 

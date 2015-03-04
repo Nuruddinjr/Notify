@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
-	before_action :find_notification, only: [:show, :edit, :update, :destroy]
+	before_action :find_notification, only: [:show, :edit, :update, :destroy, :upvote]
+	before_action :authenticate_professor!, except: [:index, :show]
 	def index
 		@notifications = Notification.all.order("created_at DESC")
 	end
@@ -34,6 +35,11 @@ class NotificationsController < ApplicationController
 		@notification.destroy
 		redirect_to root_path
 	end
+	def upvote
+		@notification.upvote_by current_professor
+		redirect_to :back
+	end
+
 	private
 	def notification_params
 		params.require(:notification).permit(:title, :description, :image)
