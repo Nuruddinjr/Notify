@@ -1,11 +1,20 @@
-= image_tag @notification.image.url(:medium)
-%h1= @notification.title
-%p= @notification.description
-%p 
-Submitted by
-= @notification.professor.email
-%br/
-
-= link_to "Back", root_path
-= link_to "Edit", edit_notification_path
-= link_to "Delete", notification_path, method: :delete, data: {confirm: "Are you sure?"}
+#notification_show.row
+	.col-md-8.col-md-offset-2
+		.panel.panel-default
+			.panel-heading.notification_image
+				= image_tag @notification.image.url(:medium)
+			.panel-body
+				%h1= @notification.title
+				%p.description= @notification.description
+				%p
+			.panel-footer
+				.row
+					.col-md-6
+						%p.professor
+						Submitted by
+						= @notification.professor.email
+					.col-md-6
+						.btn-group.pull-right
+							= link_to "Back", root_path, class: 'btn btn-default'
+							= link_to "Edit", edit_notification_path, class: 'btn btn-default'
+							= link_to "Delete", notification_path, method: :delete, data: {confirm: "Are you sure?"}, class: 'btn btn-default'

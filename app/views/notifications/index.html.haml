@@ -1,6 +1,9 @@
 #notifications.transitions-enabled
 	- @notifications.each do |notification|
 		.box.panel.panel-default
-			= link_to (image_tag notification.image.url(:medium)), notification 
+			= link_to (image_tag notification.image.url), notification 
 			.panel-body
 				%h2= link_to notification.title, notification
+				%p.professor 
+				Submitted by
+				= notification.professor.email
