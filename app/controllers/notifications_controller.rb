@@ -36,7 +36,7 @@ class NotificationsController < ApplicationController
 	end
 	private
 	def notification_params
-		params.require(:notification).permit(:title, :description)
+		params.require(:notification).permit(:title, :description, :image )
 	end
 	def find_notification
 		@notification = Notification.find(params[:id])
