@@ -16,7 +16,7 @@
 					.col-md-6
 						.btn-group.pull-right
 							= link_to like_notification_path(@notification),method: :put, class: 'btn btn-default' do
-								%span.glyphicon.glyphicon-heart
+								%span.glyphicon.glyphicon-bell
 								= @notification.get_upvotes.size
 							- if professor_signed_in?
 								= link_to "Edit", edit_notification_path, class: 'btn btn-default'
