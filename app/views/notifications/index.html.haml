@@ -1,3 +1,6 @@
-- @notifications.each do |notification|
-	= link_to (image_tag notification.image.url()), notification 
-	%h2= link_to notification.title, notification
+#notifications.transitions-enabled
+	- @notifications.each do |notification|
+		.box.panel.panel-default
+			= link_to (image_tag notification.image.url(:medium)), notification 
+			.panel-body
+				%h2= link_to notification.title, notification
