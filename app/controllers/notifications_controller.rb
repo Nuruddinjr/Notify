@@ -1,4 +1,5 @@
 class NotificationsController < ApplicationController
+	
 	before_action :find_notification, only: [:show, :edit, :update, :destroy, :upvote]
 	before_action :authenticate_professor!, except: [:index, :show]
 	def index
