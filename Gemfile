@@ -21,7 +21,7 @@ gem 'byebug'
 gem 'web-console', '~> 2.0'
 gem 'spring'
 
-
+gem "paperclip-dropbox", ">= 1.1.7"
 
 group :development, :test do
 	gem 'sqlite3'
